@@ -1,0 +1,38 @@
+﻿@model EF.Core.Data.Book
+@using EF.Web.Models
+
+<div id="frm_create_edit_book">
+    @using (Html.BeginForm())
+    {
+        @Html.Partial("_ModelHeader", new ModalHeader { Heading = @Model.ID == 0 ? "Add" : "Edit" })
+        <div class="modal-body form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, new { @class = "col-lg-3 col-sm-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ISBN, new { @class = "col-lg-3 col-sm-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Author, new { @class = "col-lg-3 col-sm-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Published, new { @class = "col-lg-3 col-sm-3 control-label" })
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.Published, new { @class = "form-control datepicker" })
+                </div>
+            </div>
+        </div>
+        @Html.Partial("_ModalFooter", new ModalFooter { })
+    }
+</div>
+
+
